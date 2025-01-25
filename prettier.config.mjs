@@ -1,5 +1,7 @@
-/** @type { import('prettier'.Config)} */
-module.exports = {
+/**
+ * @see https://prettier.io/docs/en/configuration.html
+ *  @type { import('prettier'.Config)} */
+export default{
    // 超过最大值换行
 	printWidth: 80,
 	// 缩进字节数
@@ -33,5 +35,5 @@ module.exports = {
 	// 这两个选项可用于格式化以给定字符偏移量（分别包括和不包括）开始和结束的代码
 	rangeStart: 0,
 	rangeEnd: Infinity,
-	// Vue文件脚本和样式标签缩进
+	plugins:['prettier-plugin-tailwindcss']
 }

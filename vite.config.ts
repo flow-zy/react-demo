@@ -1,14 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import { fileURLToPath } from 'url'
-
-// https://vite.dev/config/
-export default defineConfig({
-	plugins: [react()],
-	resolve: {
-		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
-			'#': fileURLToPath(new URL('./types', import.meta.url)),
+import { defineApplicationConfig } from './build'
+export default defineApplicationConfig({
+	overrides: {
+		server: {
+			open: false, // 项目启动后，自动打开
+			warmup: {
+				clientFiles: ['./index.html', './src/{views,components}/*']
+			}
 		}
 	}
 })
