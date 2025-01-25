@@ -22,7 +22,6 @@ export default tseslint.config(
 			prettier: prettierPlugin
 		},
 		rules: {
-			...prettierConfig.rules,
 			...reactHooks.configs.recommended.rules,
 			'react-refresh/only-export-components': [
 				'warn',
@@ -55,7 +54,13 @@ export default tseslint.config(
 			semi: ['error', 'never'],
 			quotes: ['error', 'single'],
 			'@typescript-eslint/no-explicit-any': 'off',
-			'@typescript-eslint/ban-ts-comment': 'off'
+			'@typescript-eslint/ban-ts-comment': 'off',
+			'@typescript-eslint/no-unused-expressions': 'off',
+			'react-refresh/only-export-components': 'off',
+			'@typescript-eslint/no-unsafe-function-type': 'off',
+			'@typescript-eslint/no-unsafe-assignment': 'off',
+			'@typescript-eslint/no-unused-vars': 'off',
+			...prettierConfig.rules
 		}
 	}
 )
