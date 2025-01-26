@@ -60,17 +60,38 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
 			define: defineData,
 			build: {
 				target: 'es2015',
+				minify: 'esbuild',
 				cssTarget: 'chrome80',
+				cssCodeSplit: true,
 				rollupOptions: {
 					output: {
 						// 入口文件名
 						entryFileNames: 'assets/entry/[name]-[hash].js',
 						manualChunks: {
-							vue: ['vue', 'pinia', 'vue-router'],
-							antd: ['ant-design-vue', '@ant-design/icons-vue']
+							'vendor-core': ['react', 'react-dom', 'react-router-dom'],
+							'vendor-ui': [
+								'antd',
+								'@ant-design/icons',
+								'@ant-design/cssinjs',
+								'framer-motion',
+								'styled-components'
+							],
+							'vendor-utils': [
+								'axios',
+								'dayjs',
+								'i18next',
+								'zustand',
+								'@iconify/react'
+							],
+							'vendor-charts': ['apexcharts', 'react-apexcharts']
 						}
 					}
 				}
+			},
+			esbuild: {
+				drop: isBuild ? ['console', 'debugger'] : [],
+				legalComments: 'none',
+				target: 'esnext'
 			},
 			plugins
 		}

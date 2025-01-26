@@ -1,26 +1,26 @@
-import { ConfigProvider } from 'antd'
-import { RouterProvider } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
-import { KeepAlive, AliveScope } from 'react-activation'
+import { MotionLazy } from './components/animate/motion-lazy'
+import Toast from './components/Toast'
+import { AntdAdapter } from './theme/adapter/antd.adapter'
+import { ThemeProvider } from './theme/theme-provider'
 
-import { hashRouter } from './router'
-import { useGlobalStore } from './store/global'
-const App = () => {
-	const { state } = useGlobalStore()
+import Router from '@/router/index'
+import Logo from '@/assets/react.svg'
+
+function App() {
 	return (
-		<div className="h-screen w-screen">
-			<ConfigProvider theme={state.themeConfig}>
-				<AliveScope>
-					{state.openKeepAlive ? (
-						<KeepAlive>
-							<RouterProvider router={hashRouter} />
-						</KeepAlive>
-					) : (
-						<RouterProvider router={hashRouter} />
-					)}
-				</AliveScope>
-			</ConfigProvider>
-		</div>
+		<ThemeProvider adapters={[AntdAdapter]}>
+			<MotionLazy>
+				<Helmet>
+					<title>Slash Admin</title>
+					<link rel="icon" href={Logo} />
+				</Helmet>
+				<Toast />
+
+				<Router />
+			</MotionLazy>
+		</ThemeProvider>
 	)
 }
 

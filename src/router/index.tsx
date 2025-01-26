@@ -1,45 +1,61 @@
-import { createHashRouter, Navigate } from 'react-router-dom'
+import { ErrorBoundary } from 'react-error-boundary'
 
-// import AuthRouter from './components/AuthRouter'
+import {
+	Navigate,
+	type RouteObject,
+	createHashRouter,
+	RouterProvider
+} from 'react-router-dom'
 
-import { lazy } from 'react'
+import type { AppRouteObject } from '#/router'
 
-import lazyLoad from './components/LazyLoad'
-
-import { RouteType } from '@/router/interface/routeType'
+import DashboardLayout from '@/layouts/dashboard'
+import PageError from '@/views/Exception/404'
 import Login from '@/views/Login'
-import Layout from '@/layout'
-import { HOME_URL } from '@/config/config'
+import ProtectedRoute from '@/router/components/project-route'
+import { usePermissionRoutes } from '@/router/hooks'
+import { ERROR_ROUTE } from '@/router/modules/error-routes'
 
-// * 处理路由
-export const routerArray: RouteType[] = []
-{
-	/* <AuthRouter> <Layout />/AuthRouter>*/
+const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env
+
+const PUBLIC_ROUTE: AppRouteObject = {
+	path: '/login',
+	element: (
+		<ErrorBoundary FallbackComponent={PageError}>
+			<Login />
+		</ErrorBoundary>
+	)
 }
-export const rootRouter: RouteType[] = [
-	{
+
+const NO_MATCHED_ROUTE: AppRouteObject = {
+	path: '*',
+	element: <Navigate to="/404" replace />
+}
+
+export default function Router() {
+	const permissionRoutes = usePermissionRoutes()
+
+	const PROTECTED_ROUTE: AppRouteObject = {
 		path: '/',
-		element: <Layout />,
-		redirect: '/home',
+		element: (
+			<ProtectedRoute>
+				<DashboardLayout />
+			</ProtectedRoute>
+		),
 		children: [
-			{
-				path: HOME_URL,
-				element: lazyLoad(lazy(() => import('@/views/Home')))
-			},
-			...routerArray
+			{ index: true, element: <Navigate to={HOMEPAGE} replace /> },
+			...permissionRoutes
 		]
-	},
-	{
-		path: '/login',
-		element: <Login />,
-		meta: {
-			title: '登录页',
-			key: 'login'
-		}
-	},
-	{
-		path: '*',
-		element: <Navigate to="/404" />
 	}
-]
-export const hashRouter = createHashRouter(rootRouter)
+
+	const routes = [
+		PUBLIC_ROUTE,
+		PROTECTED_ROUTE,
+		ERROR_ROUTE,
+		NO_MATCHED_ROUTE
+	] as RouteObject[]
+
+	const router = createHashRouter(routes)
+
+	return <RouterProvider router={router} />
+}

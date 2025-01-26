@@ -51,10 +51,15 @@ declare global {
 	}
 
 	declare interface ViteEnv {
-		VITE_USE_MOCK: boolean
-		VITE_PUBLIC_PATH: string
-		VITE_GLOB_APP_TITLE: string
-		VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none'
+		readonly VITE_USE_MOCK: boolean
+		readonly VITE_PUBLIC_PATH: string
+		readonly VITE_GLOB_APP_TITLE: string
+		readonly VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none'
+		readonly VITE_APP_ROUTER_MODE: 'permission' | 'module'
+		readonly VITE_APP_BASE_API: string
+		readonly VITE_APP_HOMEPAGE: string
+		readonly VITE_APP_BASE_PATH: string
+		readonly VITE_APP_ENV: 'development' | 'production'
 	}
 
 	declare function parseInt(s: string | number, radix?: number): number

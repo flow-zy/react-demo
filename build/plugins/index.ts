@@ -1,8 +1,10 @@
 import { type PluginOption } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import purgeIcons from 'vite-plugin-purge-icons'
-
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
+// @ts-ignore
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 import { createAppConfigPlugin } from './appConfig'
 import { configCompressPlugin } from './compress'
@@ -28,7 +30,11 @@ export const createPlugins = async ({
 }: Options) => {
 	const vitePlugins: (PluginOption | PluginOption[])[] = [
 		react(),
-		tailwindcss()
+		tailwindcss(),
+		vanillaExtractPlugin({
+			identifiers: ({ debugId }: any) => `${debugId}`
+		}),
+		tsconfigPaths()
 	]
 	const appConfigPlugin = await createAppConfigPlugin({ root, isBuild })
 	vitePlugins.push(appConfigPlugin)

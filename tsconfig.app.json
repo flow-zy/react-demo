@@ -24,13 +24,6 @@
 		"baseUrl": "./",
 		"paths": { "@/*": ["./src/*"], "#/*": ["./types/*"] }
 	},
-	"include": [
-		"src",
-		"types/**/*.d.ts",
-		"types/**/*.ts",
-		"build/**/*.ts",
-		"build/**/*.d.ts",
-		"mock/**/*.ts",
-		"vite.config.ts"
-	]
+	"include": ["src", "types", "mock", "vite.config.ts"],
+	"exclude": ["node_modules", "dist"]
 }
