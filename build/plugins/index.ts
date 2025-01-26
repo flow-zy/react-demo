@@ -1,5 +1,6 @@
 import { type PluginOption } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+// @ts-ignore
 import purgeIcons from 'vite-plugin-purge-icons'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import tailwindcss from '@tailwindcss/vite'

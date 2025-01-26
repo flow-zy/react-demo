@@ -5,7 +5,7 @@ import type { GetProp, MenuProps } from 'antd'
 
 import type { AppRouteObject } from '#/router'
 
-import { Iconify, SvgIcon } from '@/components/icon'
+import { Iconify, SvgIcon } from '@/components/Icon'
 
 import { useSettings } from '@/store/settingStore'
 import { cn } from '@/utils'

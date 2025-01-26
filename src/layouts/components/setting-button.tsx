@@ -13,7 +13,7 @@ import screenfull from 'screenfull'
 import CyanBlur from '@/assets/images/background/cyan-blur.png'
 import RedBlur from '@/assets/images/background/red-blur.png'
 import { varHover } from '@/components/animate/variants/action'
-import { IconButton, SvgIcon } from '@/components/icon'
+import { IconButton, SvgIcon } from '@/components/Icon'
 import { useSettingActions, useSettings } from '@/store/settingStore'
 import { presetsColors } from '@/theme/tokens/color'
 
@@ -37,8 +37,6 @@ export default function SettingButton() {
 		breadCrumb,
 		multiTab,
 		darkSidebar,
-		fontSize,
-		fontFamily
 	} = settings
 	const { setSettings } = useSettingActions()
 
@@ -94,14 +92,12 @@ export default function SettingButton() {
 	const setFontFamily = (fontFamily: string) => {
 		setSettings({
 			...settings,
-			fontFamily
 		})
 	}
 
 	const setFontSize = (fontSize: number) => {
 		setSettings({
 			...settings,
-			fontSize
 		})
 	}
 

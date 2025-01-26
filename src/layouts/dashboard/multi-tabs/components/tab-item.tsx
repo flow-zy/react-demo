@@ -7,7 +7,7 @@ import { useMultiTabsContext } from '../providers/multi-tabs-provider'
 import type { TabItemProps } from '../types'
 
 import { MultiTabOperation } from '@/enums/appEnum'
-import { Iconify } from '@/components/icon'
+import { Iconify } from '@/components/Icon'
 
 export function TabItem({ tab, style, onClose }: TabItemProps) {
 	const { t } = useTranslation()

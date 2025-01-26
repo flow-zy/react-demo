@@ -1,6 +1,6 @@
 import { Dropdown } from 'antd'
 
-import { IconButton, SvgIcon } from '../icon'
+import { IconButton, SvgIcon } from '../Icon'
 
 import type { MenuProps } from 'antd'
 import type { LocalEnum } from '@/enums/appEnum'

@@ -1,5 +1,5 @@
 import { readPackageJSON } from 'pkg-types'
-import { defineConfig, mergeConfig, type UserConfig } from 'vite'
+import { defineConfig, mergeConfig, PluginOption, type UserConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
 import { commonConfig } from './common'
@@ -32,7 +32,7 @@ function definePackageConfig(defineOptions: DefineOptions = {}) {
 			plugins: [
 				dts({
 					logLevel: 'error'
-				})
+				}) as PluginOption
 			]
 		}
 		const mergedConfig = mergeConfig(commonConfig(mode), packageConfig)

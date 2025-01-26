@@ -4,7 +4,7 @@ import { type CSSProperties, type ReactNode, useState } from 'react'
 
 import CyanBlur from '@/assets/images/background/cyan-blur.png'
 import RedBlur from '@/assets/images/background/red-blur.png'
-import { IconButton, Iconify, SvgIcon } from '@/components/icon'
+import { IconButton, Iconify, SvgIcon } from '@/components/Icon'
 import { themeVars } from '@/theme/theme.css'
 
 export default function NoticeButton() {

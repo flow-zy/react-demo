@@ -25,7 +25,7 @@ import useLocale from '@/locales/use-locale'
 
 export const AntdAdapter: UILibraryAdapter = ({ mode, children }) => {
 	const { language } = useLocale()
-	const { themeColorPresets, fontFamily, fontSize } = useSettings()
+	const { themeColorPresets } = useSettings()
 	const algorithm =
 		mode === ThemeMode.Light ? theme.defaultAlgorithm : theme.darkAlgorithm
 
@@ -48,8 +48,6 @@ export const AntdAdapter: UILibraryAdapter = ({ mode, children }) => {
 		colorBgElevated: colorTokens.background.default,
 
 		wireframe: false,
-		fontFamily: fontFamily,
-		fontSize: fontSize,
 
 		borderRadiusSM: removePx(baseThemeTokens.borderRadius.sm),
 		borderRadius: removePx(baseThemeTokens.borderRadius.default),

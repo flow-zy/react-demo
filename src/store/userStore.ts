@@ -58,6 +58,7 @@ export const useUserActions = () => useUserStore(state => state.actions)
 
 export const useSignIn = () => {
 	const signIn = async (data: any) => {
+		console.log(data)
 		// try {
 		// 	const res = await signInMutation.mutateAsync(data);
 		// 	const { user, accessToken, refreshToken } = res;
