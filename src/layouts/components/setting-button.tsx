@@ -434,58 +434,6 @@ export default function SettingButton() {
 						</div>
 					</div>
 
-					{/* font */}
-					<div>
-						<div className="text-text-secondary mb-3 text-base font-semibold">
-							Font{' '}
-						</div>
-
-						<div className="text-text-disabled my-3 text-sm font-semibold">
-							Family
-						</div>
-						<div className="flex flex-row gap-3">
-							{Object.entries(FontFamilyPreset).map(([font, family]) => (
-								<Card
-									key={font}
-									className="flex h-20 w-full cursor-pointer items-center justify-center"
-									onClick={() => setFontFamily(family)}
-								>
-									<div
-										className={cn(
-											fontFamily === family
-												? 'text-primary font-medium'
-												: 'text-text-disabled',
-											'text-center text-lg'
-										)}
-									>
-										<span>A</span>
-										<span className="ml-0.5 opacity-50">a</span>
-									</div>
-									<span
-										className={cn(
-											fontFamily === family
-												? 'text-text-primary font-medium'
-												: 'text-text-disabled',
-											'text-sm'
-										)}
-									>
-										{family.replace('Variable', '')}
-									</span>
-								</Card>
-							))}
-						</div>
-
-						<div className="text-text-disabled my-3 text-sm font-semibold">
-							Size
-						</div>
-						<Slider
-							min={12}
-							max={20}
-							defaultValue={fontSize}
-							onChange={setFontSize}
-						/>
-					</div>
-
 					{/* Page config */}
 					<div>
 						<div className="text-text-secondary mb-3 text-base font-semibold">
