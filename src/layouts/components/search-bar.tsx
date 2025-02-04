@@ -6,12 +6,13 @@ import { useTranslation } from 'react-i18next'
 import { useBoolean, useEvent, useKeyPressEvent } from 'react-use'
 import styled from 'styled-components'
 
-import { IconButton, SvgIcon } from '@/components/Icon'
 import Scrollbar from '@/components/scrollbar'
 import { useFlattenedRoutes, useRouter } from '@/router/hooks'
 import { themeVars } from '@/theme/theme.css'
 import { rgbAlpha } from '@/utils/theme'
 import { RouteMeta } from '#/router'
+import IconButton from '@/components/Icon/icon-button'
+import SvgIcon from '@/components/Icon/svg-icon'
 
 export default function SearchBar() {
 	const { t } = useTranslation()

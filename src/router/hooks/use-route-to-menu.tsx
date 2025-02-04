@@ -5,11 +5,12 @@ import type { GetProp, MenuProps } from 'antd'
 
 import type { AppRouteObject } from '#/router'
 
-import { Iconify, SvgIcon } from '@/components/Icon'
 
 import { useSettings } from '@/store/settingStore'
 import { cn } from '@/utils'
 import { ThemeLayout } from '@/enums/appEnum'
+import Iconify from '@/components/Icon/iconify-icon'
+import SvgIcon from '@/components/Icon/svg-icon'
 
 type MenuItem = GetProp<MenuProps, 'items'>[number]
 

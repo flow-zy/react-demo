@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 
-import Loading from '@/components/Loading'
+import { CircleLoading as Loading} from '@/components/Loading'
 
 let needLoadingRequestCount = 0
 

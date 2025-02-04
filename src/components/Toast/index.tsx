@@ -2,7 +2,8 @@ import { Toaster } from 'sonner'
 
 import styled from 'styled-components'
 
-import { Iconify } from '../Icon'
+
+import Iconify from '../Icon/iconify-icon'
 
 import { useSettings } from '@/store/settingStore'
 import { themeVars } from '@/theme/theme.css'

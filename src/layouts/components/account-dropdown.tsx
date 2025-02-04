@@ -4,11 +4,11 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 
-import { IconButton } from '@/components/Icon'
 import { useRouter } from '@/router/hooks'
 import { useUserActions, useUserInfo } from '@/store/userStore'
 import { useTheme } from '@/theme/hooks'
 import { HOME_URL } from '@/config/config'
+import IconButton from '@/components/Icon/icon-button'
 
 /**
  * Account Dropdown

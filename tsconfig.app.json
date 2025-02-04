@@ -21,9 +21,9 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": { "@/*": ["./src/*"], "#/*": ["./types/*"] }
 	},
-	"include": ["src", "types", "mock", "vite.config.ts"],
+	"include": ["./src", "./types", "./mock"],
 	"exclude": ["node_modules", "dist"]
 }

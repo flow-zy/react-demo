@@ -10,15 +10,16 @@ import type { Permission } from '#/entity'
 
 import type { AppRouteObject } from '#/router'
 
-import { Iconify } from '@/components/icon'
 import { CircleLoading } from '@/components/Loading'
 import { useUserPermission } from '@/store/userStore'
 import { flattenTrees } from '@/utils/tree'
 
 import { BasicStatus, PermissionType } from '@/enums/appEnum'
+import Iconify from '@/components/Icon/iconify-icon'
 
 const ENTRY_PATH = '/src/pages'
-const PAGES = import.meta.glob('/src/pages/**/*.tsx')
+const PAGES = import.meta.glob('/src/pages/**/*.tsx', {
+})
 const loadComponentFromPath = (path: string) => PAGES[`${ENTRY_PATH}${path}`]
 
 /**

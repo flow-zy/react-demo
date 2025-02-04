@@ -15,7 +15,6 @@ import SearchBar from '../components/search-bar'
 
 import SettingButton from '../components/setting-button'
 
-import { IconButton, Iconify, SvgIcon } from '@/components/Icon'
 import LocalePicker from '@/components/locale-picker'
 import Logo from '@/components/logo'
 import { useSettings } from '@/store/settingStore'
@@ -24,6 +23,9 @@ import { themeVars } from '@/theme/theme.css'
 import { cn } from '@/utils'
 import { rgbAlpha } from '@/utils/theme'
 import { ThemeLayout } from '@/enums/appEnum'
+import IconButton from '@/components/Icon/icon-button'
+import Iconify from '@/components/Icon/iconify-icon'
+import SvgIcon from '@/components/Icon/svg-icon'
 
 export default function Header() {
 	const [drawerOpen, setDrawerOpen] = useState(false)

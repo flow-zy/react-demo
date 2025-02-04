@@ -4,7 +4,7 @@ import {
 	QuestionCircleOutlined,
 	RightOutlined
 } from '@ant-design/icons'
-import { Button, Card, Drawer, Slider, Switch, Tooltip } from 'antd'
+import { Button, Card, Drawer, Switch, Tooltip } from 'antd'
 import { m } from 'framer-motion'
 import { type CSSProperties, useState } from 'react'
 import { MdCircle } from 'react-icons/md'
@@ -13,14 +13,13 @@ import screenfull from 'screenfull'
 import CyanBlur from '@/assets/images/background/cyan-blur.png'
 import RedBlur from '@/assets/images/background/red-blur.png'
 import { varHover } from '@/components/animate/variants/action'
-import { IconButton, SvgIcon } from '@/components/Icon'
 import { useSettingActions, useSettings } from '@/store/settingStore'
 import { presetsColors } from '@/theme/tokens/color'
 
 import { themeVars } from '@/theme/theme.css'
-import { FontFamilyPreset } from '@/theme/tokens/typography'
-import { cn } from '@/utils'
 import { type ThemeColorPresets, ThemeLayout, ThemeMode } from '@/enums/appEnum'
+import IconButton from '@/components/Icon/icon-button'
+import SvgIcon from '@/components/Icon/svg-icon'
 
 /**
  * App Setting
@@ -89,17 +88,6 @@ export default function SettingButton() {
 		})
 	}
 
-	const setFontFamily = (fontFamily: string) => {
-		setSettings({
-			...settings,
-		})
-	}
-
-	const setFontSize = (fontSize: number) => {
-		setSettings({
-			...settings,
-		})
-	}
 
 	const style: CSSProperties = {
 		backdropFilter: 'blur(20px)',

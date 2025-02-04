@@ -3,10 +3,10 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useMatches } from 'react-router-dom'
 
-import { Iconify } from '@/components/Icon'
 import { useFlattenedRoutes, usePermissionRoutes } from '@/router/hooks'
 import { menuFilter } from '@/router/utils'
 import { RouteMeta } from '#/router'
+import Iconify from '@/components/Icon/iconify-icon'
 
 type MenuItem = GetProp<BreadcrumbProps, 'items'>[number]
 

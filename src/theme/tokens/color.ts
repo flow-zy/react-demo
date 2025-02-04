@@ -3,11 +3,11 @@ import { ThemeColorPresets } from '@/enums/appEnum'
 
 export const presetsColors = {
 	[ThemeColorPresets.Default]: {
-		lighter: '#C8FAD6',
-		light: '#5BE49B',
-		default: '#00A76F',
-		dark: '#007867',
-		darker: '#004B50'
+		lighter: '#EBD6FD',
+		light: '#B985F4',
+		default: '#7635DC',
+		dark: '#431A9E',
+		darker: '#200A69'
 	},
 	[ThemeColorPresets.Cyan]: {
 		lighter: '#CCF4FE',
