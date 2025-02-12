@@ -9,6 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   build:
+		name: Build
     runs-on: ubuntu-latest
     steps:
     # 步骤名称
