@@ -135,7 +135,7 @@ export default function SettingButton() {
 			</div>
 			<Drawer
 				placement="right"
-				title="Settings"
+				title="设置"
 				onClose={() => setDrawerOpen(false)}
 				open={drawerOpen}
 				closable={false}
@@ -162,12 +162,12 @@ export default function SettingButton() {
 										color={themeVars.colors.palette.primary.default}
 										className="!m-0"
 									/>
-									<span className="ml-2">Exit FullScreen</span>
+									<span className="ml-2">退出全屏</span>
 								</>
 							) : (
 								<>
 									<SvgIcon icon="ic-settings-fullscreen" className="!m-0" />
-									<span className="text-gray ml-2">FullScreen</span>
+									<span className="text-gray ml-2">全屏</span>
 								</>
 							)}
 						</div>
@@ -178,7 +178,7 @@ export default function SettingButton() {
 					{/* theme mode */}
 					<div>
 						<div className="text-text-secondary mb-3 text-base font-semibold">
-							Mode
+							主题
 						</div>
 						<div className="flex flex-row gap-4">
 							<Card
@@ -215,7 +215,7 @@ export default function SettingButton() {
 					{/* theme layout */}
 					<div>
 						<div className="text-text-secondary mb-3 text-base font-semibold">
-							Layout
+							布局
 						</div>
 						<div className="grid grid-cols-3 gap-4">
 							<Card
@@ -395,7 +395,7 @@ export default function SettingButton() {
 					{/* theme presets */}
 					<div>
 						<div className="text-text-secondary mb-3 text-base font-semibold">
-							Presets
+							主题色
 						</div>
 						<div className="grid grid-cols-3 gap-x-4 gap-y-3">
 							{Object.entries(presetsColors).map(([preset, color]) => (

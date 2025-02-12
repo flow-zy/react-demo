@@ -1,0 +1,45 @@
+name: Desky
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    # 步骤名称
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: actions/setup-node@v2
+      uses: actions/setup-node@v2
+      with:
+        node-version: '22.10.0'
+        cache: 'pnpm'
+        cache-dependency-path: '**/pnpm-lock.yaml'
+    - run: pnpm install && pnpm build
+    # 上传打包好的文件，所以下一步可以使用
+    - name: upload files
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-pages
+        path: build
+        retention-days: 1
+  Deploy:
+    needs: Build # 确保build 阶段完成
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: download build files
+        uses: actions/download-artifact@v2
+        with:
+          name: build-pages
+          path: build
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.3
+        with:
+          branch: gh-pages
+          folder: build
+          token: "${{ secrets.ACCESS_TOKEN  }}"

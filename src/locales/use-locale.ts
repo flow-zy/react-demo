@@ -17,13 +17,13 @@ interface Language {
 export const LANGUAGE_MAP: Record<Locale, Language> = {
 	[LocalEnum.zh_CN]: {
 		locale: LocalEnum.zh_CN,
-		label: 'Chinese',
+		label: '简体中文',
 		icon: 'ic-locale_zh_CN',
 		antdLocal: zh_CN
 	},
 	[LocalEnum.en_US]: {
 		locale: LocalEnum.en_US,
-		label: 'English',
+		label: '英文',
 		icon: 'ic-locale_en_US',
 		antdLocal: en_US
 	}
@@ -39,7 +39,7 @@ export default function useLocale() {
 		i18n.changeLanguage(locale)
 	}
 
-	const locale = (i18n.resolvedLanguage || LocalEnum.en_US) as Locale
+	const locale = (i18n.resolvedLanguage || LocalEnum.zh_CN) as Locale
 
 	const language = LANGUAGE_MAP[locale]
 

@@ -23,7 +23,7 @@ export default function NavLogo({ collapsed, onToggle }: Props) {
 				<Logo />
 				{themeLayout !== ThemeLayout.Mini && (
 					<span className="text-primary ml-2 text-xl font-bold">
-						Slash Admin
+						宗门管理系统
 					</span>
 				)}
 			</div>
