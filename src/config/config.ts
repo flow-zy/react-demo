@@ -15,3 +15,13 @@ export const TABS_BLACK_LIST: string[] = [
 
 // * 高德地图key
 export const MAP_KEY: string = ''
+
+export const DEFAULT_USER = {
+	username: 'admin',
+	password: '123456'
+}
+
+export const TEST_USER = {
+	username: 'test',
+	password: '123456'
+}
