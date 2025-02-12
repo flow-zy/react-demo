@@ -24,22 +24,27 @@ jobs:
     - name: Setup Pages
         uses: actions/configure-pages@v4
 		- name: Install dependencies
-    # 上传打包好的文件，所以下一步可以使用
-    - name: Build with React
+		- name: Build project
       run: pnpm build
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-	 # 部署工作
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # 上传打包好的文件，所以下一步可以使用
+		- name: Upload production-ready build files
+      uses: actions/upload-artifact@v2
+      with:
+        name: production-files
+        path: dist
+	deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    name: Deploy
-		steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: production-files
+        path: dist
+   	- name: Deploy to server
+			uses: peaceiris/actions-gh-pages@v3
+        with:
+          branch: gh-pages
+          folder: dist
+          token: "${{ secrets.ACCESS_TOKEN  }}"
