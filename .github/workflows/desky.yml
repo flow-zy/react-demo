@@ -4,41 +4,45 @@ on:
     branches:
       - master
       - dev
-
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
-  Build:
+  build:
     runs-on: ubuntu-latest
     steps:
     # 步骤名称
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: actions/setup-node@v2
-      uses: actions/setup-node@v2
-      with:
-        node-version: '22.10.0'
-        cache: 'pnpm'
-        cache-dependency-path: '**/pnpm-lock.yaml'
-    - run: pnpm install && pnpm build
-    # 上传打包好的文件，所以下一步可以使用
-    - name: upload files
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-pages
-        path: build
-        retention-days: 1
-  Deploy:
-    needs: Build # 确保build 阶段完成
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-      - name: download build files
-        uses: actions/download-artifact@v2
+   	- name: Checkout
+        uses: actions/checkout@v4
         with:
-          name: build-pages
-          path: build
-      - name: deploy
-        uses: JamesIves/github-pages-deploy-action@v4.2.3
+          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
+		- name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm # 或 pnpm / yarn
+    - name: Setup Pages
+        uses: actions/configure-pages@v4
+		- name: Install dependencies
+    # 上传打包好的文件，所以下一步可以使用
+    - name: Build with React
+      run: pnpm build
+    - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+	 # 部署工作
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+		steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
           branch: gh-pages
           folder: build
