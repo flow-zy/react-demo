@@ -1,25 +1,31 @@
 import { Helmet } from 'react-helmet-async'
 
-import { MotionLazy } from './components/animate/motion-lazy'
-import Toast from './components/Toast'
-import { AntdAdapter } from './theme/adapter/antd.adapter'
-import { ThemeProvider } from './theme/theme-provider'
+import { ConfigProvider ,App as AntApp} from 'antd'
+import {Suspense, useState,useEffect } from 'react'
 
-import Router from '@/router/index'
+import { Analytics } from '@vercel/analytics/react'
+
+import Progress from './components/Nprogress'
+
 import Logo from '@/assets/react.svg'
 
 function App() {
+	const [isAnimating, setIsAnimating] = useState(true)
+	useEffect(() => {
+	  setIsAnimating(false)
+	},[])
 	return (
-		<ThemeProvider adapters={[AntdAdapter]}>
-			<MotionLazy>
-				<Helmet>
+		<ConfigProvider>
+			<Helmet>
 					<title>宗门管理系统</title>
 					<link rel="icon" href={Logo} />
-				</Helmet>
-				<Toast />
-				<Router />
-			</MotionLazy>
-		</ThemeProvider>
+			</Helmet>
+				{/* <Suspense> */}
+				<Progress isAnimating={isAnimating} />
+				<Analytics />
+				<AntApp />
+			{/* </Suspense> */}
+		</ConfigProvider>
 	)
 }
 

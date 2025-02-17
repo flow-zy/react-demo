@@ -1,7 +1,5 @@
 import color from 'color'
 
-import { themeTokens } from '../theme/type'
-
 /**
  * @example
  * const rgb = rgbAlpha("#000000", 0.24);
@@ -108,7 +106,7 @@ export const getThemeTokenVariants = (propertyPath: string) => {
 			return obj[key]
 		}
 		return
-	}, themeTokens)
+	}, {})
 
 	return val ? Object.keys(val) : []
 }
