@@ -194,9 +194,9 @@ importers:
       react-error-boundary:
         specifier: ^5.0.0
         version: 5.0.0(react@18.3.1)
-      react-fullscreen:
-        specifier: ^0.1.0
-        version: 0.1.0(react@18.3.1)
+      react-full-screen:
+        specifier: ^1.1.1
+        version: 1.1.1(react@18.3.1)
       react-helmet-async:
         specifier: ^2.0.5
         version: 2.0.5(react@18.3.1)
@@ -4725,6 +4725,9 @@ packages:
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
+  fscreen@1.2.0:
+    resolution: {integrity: sha512-hlq4+BU0hlPmwsFjwGGzZ+OZ9N/wq9Ljg/sq3pX+2CD7hrJsX9tJgWWK/wiNTFM212CLHWhicOoqwXyZGGetJg==}
+
   fsevents@1.2.13:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
@@ -7341,10 +7344,11 @@ packages:
   react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
 
-  react-fullscreen@0.1.0:
-    resolution: {integrity: sha512-h6PQLrJpzHHfRbAao2bZJ+M9kT2YI02YyWYNl9buihD6+lqNzJ9BMSWagEqRRNXhu7J1s96CeA4jj/aKBioZHw==}
+  react-full-screen@1.1.1:
+    resolution: {integrity: sha512-xoEgkoTiN0dw9cjYYGViiMCBYbkS97BYb4bHPhQVWXj1UnOs8PZ1rPzpX+2HMhuvQV1jA5AF9GaRbO3fA5aZtg==}
+    engines: {node: '>=10'}
     peerDependencies:
-      react: ^0.13.0 || ^0.14.0-a
+      react: '>= 16.8.0'
 
   react-helmet-async@2.0.5:
     resolution: {integrity: sha512-rYUYHeus+i27MvFE+Jaa4WsyBKGkL6qVgbJvSBoX8mbsWoABJXdEO0bZyi0F6i+4f0NuIb8AvqPMj3iXFHkMwg==}
@@ -14078,6 +14082,8 @@ snapshots:
 
   fs.realpath@1.0.0: {}
 
+  fscreen@1.2.0: {}
+
   fsevents@1.2.13:
     dependencies:
       bindings: 1.5.0
@@ -16993,8 +16999,9 @@ snapshots:
 
   react-fast-compare@3.2.2: {}
 
-  react-fullscreen@0.1.0(react@18.3.1):
+  react-full-screen@1.1.1(react@18.3.1):
     dependencies:
+      fscreen: 1.2.0
       react: 18.3.1
 
   react-helmet-async@2.0.5(react@18.3.1):
