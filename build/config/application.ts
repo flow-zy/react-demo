@@ -53,7 +53,7 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
 					// #/xxxx => types/xxxx
 					{
 						find: /#\//,
-						replacement: pathResolve('types') + '/'
+						replacement: pathResolve('src/types') + '/'
 					}
 				]
 			},

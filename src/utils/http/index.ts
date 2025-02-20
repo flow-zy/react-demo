@@ -17,7 +17,7 @@ import {
 	showFullScreenLoading,
 	tryHideFullScreenLoading
 } from '@/config/serviceLoading'
-import { ResultData } from '#/axios'
+import { ResultData } from '@/types/axios'
 import { ResultEnum } from '@/enums/httpEnum'
 import { TOKEN_KEY } from '@/enums/cacheEnum'
 const axiosCanceler = new AxiosCanceler()

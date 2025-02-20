@@ -6,6 +6,7 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
 // @ts-ignore
 import tsconfigPaths from 'vite-tsconfig-paths'
+import Inspect  from 'vite-plugin-inspect'
 
 import { createAppConfigPlugin } from './appConfig'
 import { configCompressPlugin } from './compress'
@@ -63,6 +64,9 @@ export const createPlugins = async ({
 	if (enableMock) {
 		vitePlugins.push(configMockPlugin({ isBuild }))
 	}
-
+	// vitePlugins.push(Inspect({
+	// 	build: true,
+	// 	outputDir: '.vite-inspect'
+	// }))
 	return vitePlugins
 }

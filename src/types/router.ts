@@ -5,52 +5,52 @@ export interface RouteMeta {
 	/**
 	 * antd menu selectedKeys
 	 */
-	key: string
+	key: string;
 	/**
 	 * menu label, i18n
 	 */
-	label: string
+	label: string;
 	/**
 	 * menu prefix icon
 	 */
-	icon?: ReactNode
+	icon?: ReactNode;
 	/**
 	 * menu suffix icon
 	 */
-	suffix?: ReactNode
+	suffix?: ReactNode;
 	/**
 	 * hide in menu
 	 */
-	hideMenu?: boolean
+	hideMenu?: boolean;
 	/**
 	 * hide in multi tab
 	 */
-	hideTab?: boolean
+	hideTab?: boolean;
 	/**
 	 * disable in menu
 	 */
-	disabled?: boolean
+	disabled?: boolean;
 	/**
 	 * react router outlet
 	 */
-	outlet?: ReactNode
+	outlet?: ReactNode;
 	/**
 	 * use to refresh tab
 	 */
-	timeStamp?: string
+	timeStamp?: string;
 	/**
 	 * external link and iframe need
 	 */
-	frameSrc?: URL
+	frameSrc?: URL;
 	/**
 	 * dynamic route params
 	 *
 	 * @example /user/:id
 	 */
-	params?: Params<string>
+	params?: Params<string>;
 }
 export type AppRouteObject = {
-	order?: number
-	meta?: RouteMeta
-	children?: AppRouteObject[]
-} & Omit<RouteObject, 'children'>
+	order?: number;
+	meta?: RouteMeta;
+	children?: AppRouteObject[];
+} & Omit<RouteObject, 'children'>;
