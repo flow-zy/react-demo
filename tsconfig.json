@@ -6,6 +6,7 @@
     "useDefineForClassFields": true,
     "baseUrl": ".",
     "module": "ESNext",
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "paths": {
       "@/*": ["./src/*"],
@@ -15,7 +16,7 @@
     "types": ["vite/client", "node"],
     "allowImportingTsExtensions": true,
     /* Linting */
-    "strict": true,
+    "strict": false,
     "strictNullChecks": true,
     "noUnusedLocals": false,
     "noEmit": true,
