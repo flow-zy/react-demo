@@ -20,13 +20,14 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 22
+        node-version: 22.10.0
+    - uses: pnpm/action-setup@v2
 
     - name: Install Dependencies
-      run: npm install
+      run: pnpm install
 
     - name: Build project
-      run: npm run build
+      run: pnpm build
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v4
