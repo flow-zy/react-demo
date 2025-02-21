@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc  --noEmit && vite build",
+		"build": "tsc  --noEmit && vite build --progress",
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
