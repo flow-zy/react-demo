@@ -13,7 +13,7 @@ const commonConfig: (mode: string) => UserConfig = mode => ({
 		rollupOptions: {
 			// TODO: Prevent memory overflow
 			maxParallelFileOps: 3
-		}
+		},
 	},
 	plugins: []
 })

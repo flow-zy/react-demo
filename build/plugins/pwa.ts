@@ -2,6 +2,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 export const createPwaPlugin = () => {
 	return VitePWA({
 		registerType: 'autoUpdate',
+		injectRegister: 'auto',
 		manifest: {
 			name: 'Vite-React-TS',
 			short_name: 'Vite-React-TS',

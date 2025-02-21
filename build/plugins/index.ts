@@ -2,8 +2,6 @@ import { type PluginOption } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 // @ts-ignore
 import purgeIcons from 'vite-plugin-purge-icons'
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
-import tailwindcss from '@tailwindcss/vite'
 // @ts-ignore
 import tsconfigPaths from 'vite-tsconfig-paths'
 import Inspect  from 'vite-plugin-inspect'
@@ -32,10 +30,6 @@ export const createPlugins = async ({
 }: Options) => {
 	const vitePlugins: (PluginOption | PluginOption[])[] = [
 		react(),
-		tailwindcss(),
-		vanillaExtractPlugin({
-			identifiers: ({ debugId }: any) => `${debugId}`
-		}),
 		tsconfigPaths()
 	]
 	const appConfigPlugin = await createAppConfigPlugin({ root, isBuild })
@@ -54,7 +48,7 @@ export const createPlugins = async ({
 				compress
 			})
 		)
-		// vitePlugins.push(createPwaPlugin())
+		vitePlugins.push(createPwaPlugin())
 	}
 	if (enableAnalyze) {
 		vitePlugins.push(configVisualizerConfig())
@@ -64,9 +58,9 @@ export const createPlugins = async ({
 	if (enableMock) {
 		vitePlugins.push(configMockPlugin({ isBuild }))
 	}
-	// vitePlugins.push(Inspect({
-	// 	build: true,
-	// 	outputDir: '.vite-inspect'
-	// }))
+	vitePlugins.push(Inspect({
+		build: true,
+		outputDir: '/dist/.vite-inspect'
+	}))
 	return vitePlugins
 }

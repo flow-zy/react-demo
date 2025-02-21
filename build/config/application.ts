@@ -42,11 +42,6 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
 			resolve: {
 				alias: [
 					{
-						find: 'vue-i18n',
-						replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
-					},
-					// @/xxxx => src/xxxx
-					{
 						find: /@\//,
 						replacement: pathResolve('src') + '/'
 					},
@@ -66,30 +61,37 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
 				rollupOptions: {
 					onwarn(warning, warn) {
 		        // 根据警告类型过滤或处理
-		        if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return;
-		        warn(warning);
+		        if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return
+		        warn(warning)
 		      },
 					output: {
 						// 入口文件名
-						entryFileNames: 'assets/entry/[name]-[hash].js',
-						manualChunks: {
-							'vendor-core': ['react', 'react-dom', 'react-router-dom'],
-							'vendor-ui': [
-								'antd',
-								'@ant-design/icons',
-								'@ant-design/cssinjs',
-								'framer-motion',
-								'styled-components'
-							],
-							'vendor-utils': [
-								'axios',
-								'dayjs',
-								'i18next',
-								'zustand',
-								'@iconify/react'
-							],
-							'vendor-charts': ['apexcharts', 'react-apexcharts']
+						entryFileNames: 'assets/js/[name]-[hash].js',
+						assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+						chunkFileNames: 'assets/js/[name]-[hash].js',
+						manualChunks(id) {
+							if (id.includes('node_modules')) {
+								return id.toString().split('node_modules/')[1].split('/')[0].toString()
+							}
 						}
+						// manualChunks: {
+						// 	'vendor-core': ['react', 'react-dom', 'react-router-dom'],
+						// 	'vendor-ui': [
+						// 		'antd',
+						// 		'@ant-design/icons',
+						// 		'@ant-design/cssinjs',
+						// 		'framer-motion',
+						// 		'styled-components'
+						// 	],
+						// 	'vendor-utils': [
+						// 		'axios',
+						// 		'dayjs',
+						// 		'i18next',
+						// 		'zustand',
+						// 		'@iconify/react'
+						// 	],
+						// 	'vendor-charts': ['apexcharts', 'react-apexcharts']
+						// }
 					}
 				}
 			},
@@ -120,7 +122,7 @@ async function createDefineData(root: string) {
 			__APP_INFO__: JSON.stringify(__APP_INFO__)
 		}
 	} catch (error) {
-		console.error(error)
+		console.error(error,'error')
 		return {}
 	}
 }
