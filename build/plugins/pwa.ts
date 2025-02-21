@@ -10,7 +10,7 @@ export const createPwaPlugin = () => {
 			theme_color: '#ffffff',
 			icons: [
 				{
-					src: '/vite.svg',
+					src: '/react-domo/vite.svg',
 					sizes: '192x192',
 					type: 'image/svg+xml'
 				}

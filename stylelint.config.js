@@ -27,7 +27,17 @@ export default {
 			{
 				ignorePseudoClasses: ["global", "v-deep", "deep"]
 			}
-		]
+		],
+		 'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen'],
+      },
+    ],
+    'declaration-block-trailing-semicolon': 'always',
+    'no-descending-specificity': null,
+    'selector-class-pattern': null,
+    'value-no-vendor-prefix': null, // 关闭 vendor-prefix(为了解决多行省略 -webkit-box)
 	}
 
 }

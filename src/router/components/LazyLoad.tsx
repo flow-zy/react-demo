@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { FC, Suspense } from 'react'
 import { Spin } from 'antd'
 
 /**
@@ -6,7 +6,11 @@ import { Spin } from 'antd'
  * @param {Element} Comp 需要访问的组件
  * @returns element
  */
-const lazyLoad = (Comp: React.LazyExoticComponent<any>): React.ReactNode => {
+interface ParentProps {
+    children: React.LazyExoticComponent<any>;
+}
+
+const lazyLoad:FC<ParentProps> = (props:ParentProps) => {
 	return (
 		<Suspense
 			fallback={
@@ -16,7 +20,7 @@ const lazyLoad = (Comp: React.LazyExoticComponent<any>): React.ReactNode => {
 				/>
 			}
 		>
-			<Comp />
+			<>{props.children}</>
 		</Suspense>
 	)
 }

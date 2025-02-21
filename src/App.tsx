@@ -5,7 +5,7 @@ import { Suspense, useState, useEffect } from 'react'
 
 import { Analytics } from '@vercel/analytics/react'
 
-import Router, { RouterGuard } from './router'
+import Router from './router'
 
 import Logo from '@/assets/react.svg'
 
@@ -17,7 +17,7 @@ function App() {
 				<link rel="icon" href={Logo} />
 			</Helmet>
 			<Suspense>
-				<RouterGuard>{Router()}</RouterGuard>
+				{Router()}
 				<Analytics />
 				<AntApp />
 			</Suspense>
