@@ -64,9 +64,9 @@ export const createPlugins = async ({
 	if (enableMock) {
 		vitePlugins.push(configMockPlugin({ isBuild }))
 	}
-	vitePlugins.push(Inspect({
-		build: true,
-		outputDir: '.vite-inspect'
-	}))
+	// vitePlugins.push(Inspect({
+	// 	build: true,
+	// 	outputDir: '.vite-inspect'
+	// }))
 	return vitePlugins
 }
