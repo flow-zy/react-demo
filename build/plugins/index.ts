@@ -54,7 +54,7 @@ export const createPlugins = async ({
 				compress
 			})
 		)
-		vitePlugins.push(createPwaPlugin())
+		// vitePlugins.push(createPwaPlugin())
 	}
 	if (enableAnalyze) {
 		vitePlugins.push(configVisualizerConfig())
