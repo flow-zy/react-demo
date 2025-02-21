@@ -64,6 +64,11 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
 				cssTarget: 'chrome80',
 				cssCodeSplit: true,
 				rollupOptions: {
+					onwarn(warning, warn) {
+		        // 根据警告类型过滤或处理
+		        if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return;
+		        warn(warning);
+		      },
 					output: {
 						// 入口文件名
 						entryFileNames: 'assets/entry/[name]-[hash].js',
