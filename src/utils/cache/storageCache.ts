@@ -1,23 +1,25 @@
+import type { Encryption, EncryptionParams } from '@/utils/cipher'
+
 import { cacheCipher } from '@/settings/encryption'
 import { isNil } from '@/utils/is'
-import { Encryption, EncryptionFactory, EncryptionParams } from '@/utils/cipher'
+import { EncryptionFactory } from '@/utils/cipher'
 
 export interface CreateStorageParams extends EncryptionParams {
-  prefixKey: string;
-  storage: Storage;
-  hasEncrypt: boolean;
-  timeout?: number | null;
+  prefixKey: string
+  storage: Storage
+  hasEncrypt: boolean
+  timeout?: number | null
 }
 // TODO 移除此文件夹下全部代码
-export const createStorage = ({
+export function createStorage({
   prefixKey = '',
   storage = sessionStorage,
   key = cacheCipher.key,
   iv = cacheCipher.iv,
   timeout = null,
   hasEncrypt = true,
-}: Partial<CreateStorageParams> = {}) => {
-  if (hasEncrypt && [key.length, iv.length].some((item) => item !== 16)) {
+}: Partial<CreateStorageParams> = {}) {
+  if (hasEncrypt && [key.length, iv.length].some(item => item !== 16)) {
     throw new Error('When hasEncrypt is true, the key or iv must be 16 bits!')
   }
 
@@ -76,7 +78,8 @@ export const createStorage = ({
      */
     get(key: string, def: any = null): any {
       const val = this.storage.getItem(this.getKey(key))
-      if (!val) return def
+      if (!val)
+        return def
 
       try {
         const decVal = this.hasEncrypt ? this.encryption.decrypt(val) : val
@@ -86,7 +89,8 @@ export const createStorage = ({
           return value
         }
         this.remove(key)
-      } catch (e) {
+      }
+      catch (e) {
         return def
       }
     }

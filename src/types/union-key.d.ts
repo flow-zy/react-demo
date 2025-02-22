@@ -9,7 +9,7 @@ declare namespace UnionKey {
    * - reset-pwd: reset password
    * - bind-wechat: bind wechat
    */
-  type LoginModule = 'code-login' | 'pwd-login' | 'register' | 'reset-pwd';
+  type LoginModule = 'code-login' | 'pwd-login' | 'register' | 'reset-pwd'
 
   /**
    * The layout mode
@@ -19,7 +19,7 @@ declare namespace UnionKey {
    * - vertical-mix: two vertical mixed menus in left
    * - horizontal-mix: the vertical menu in left and horizontal menu in top
    */
-  type ThemeLayoutMode = 'horizontal' | 'horizontal-mix' | 'vertical' | 'vertical-mix';
+  type ThemeLayoutMode = 'horizontal' | 'horizontal-mix' | 'vertical' | 'vertical-mix'
 
   /**
    * The scroll mode when content overflow
@@ -27,10 +27,10 @@ declare namespace UnionKey {
    * - wrapper: the wrapper component's root element overflow
    * - content: the content component overflow
    */
-  type ThemeScrollMode = 'content' | 'wrapper';
+  type ThemeScrollMode = 'content' | 'wrapper'
 
   /** Page animate mode */
-  type ThemePageAnimateMode = 'fade' | 'fade-bottom' | 'fade-scale' | 'fade-slide' | 'none' | 'zoom-fade' | 'zoom-out';
+  type ThemePageAnimateMode = 'fade' | 'fade-bottom' | 'fade-scale' | 'fade-slide' | 'none' | 'zoom-fade' | 'zoom-out'
 
   /**
    * Tab mode
@@ -38,7 +38,7 @@ declare namespace UnionKey {
    * - chrome: chrome style
    * - button: button style
    */
-  type ThemeTabMode = 'button' | 'chrome';
+  type ThemeTabMode = 'button' | 'chrome'
 
   /** Unocss animate key */
   type UnoCssAnimateKey =
@@ -142,5 +142,5 @@ declare namespace UnionKey {
     | 'zoom-out-down'
     | 'zoom-out-left'
     | 'zoom-out-right'
-    | 'zoom-out-up';
+    | 'zoom-out-up'
 }

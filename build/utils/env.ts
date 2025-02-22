@@ -7,14 +7,14 @@ import { join } from 'node:path'
  * 获取当前环境下生效的配置文件名
  */
 function getConfFiles() {
-	const script = process.env.npm_lifecycle_script as string
-	const reg = new RegExp('--mode ([a-z_\\d]+)')
-	const result = reg.exec(script)
-	if (result) {
-		const mode = result[1]
-		return ['.env', `.env.${mode}`]
-	}
-	return ['.env', '.env.production']
+  const script = process.env.npm_lifecycle_script as string
+  const reg = new RegExp('--mode ([a-z_\\d]+)')
+  const result = reg.exec(script)
+  if (result) {
+    const mode = result[1]
+    return ['.env', `.env.${mode}`]
+  }
+  return ['.env', '.env.production']
 }
 
 /**
@@ -23,29 +23,30 @@ function getConfFiles() {
  * @param confFiles ext
  */
 export async function getEnvConfig(
-	match = 'VITE_GLOB_',
-	confFiles = getConfFiles()
+  match = 'VITE_GLOB_',
+  confFiles = getConfFiles(),
 ): Promise<{
-	[key: string]: string
-}> {
-	let envConfig = {}
+    [key: string]: string
+  }> {
+  let envConfig = {}
 
-	for (const confFile of confFiles) {
-		try {
-			const envPath = await fs.readFile(join(process.cwd(), confFile), {
-				encoding: 'utf8'
-			})
-			const env = dotenv.parse(envPath)
-			envConfig = { ...envConfig, ...env }
-		} catch (e) {
-			console.error(`Error in parsing ${confFile}`, e)
-		}
-	}
-	const reg = new RegExp(`^(${match})`)
-	Object.keys(envConfig).forEach(key => {
-		if (!reg.test(key)) {
-			Reflect.deleteProperty(envConfig, key)
-		}
-	})
-	return envConfig
+  for (const confFile of confFiles) {
+    try {
+      const envPath = await fs.readFile(join(process.cwd(), confFile), {
+        encoding: 'utf8',
+      })
+      const env = dotenv.parse(envPath)
+      envConfig = { ...envConfig, ...env }
+    }
+    catch (e) {
+      console.error(`Error in parsing ${confFile}`, e)
+    }
+  }
+  const reg = new RegExp(`^(${match})`)
+  Object.keys(envConfig).forEach((key) => {
+    if (!reg.test(key)) {
+      Reflect.deleteProperty(envConfig, key)
+    }
+  })
+  return envConfig
 }

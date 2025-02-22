@@ -13,6 +13,6 @@ declare interface ImportMeta {
   readonly env: ImportMetaEnv
 }
 declare module 'crypto-js'
-declare type Nullable<T> =T | null | undefined
+declare type Nullable<T> = T | null | undefined
 declare module '@hanyk/rc-viewer'
 declare module '@tailwindcss/vite'

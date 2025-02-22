@@ -1,7 +1,7 @@
-const BasicForm = () => {
-	return (
-		<div>BasicForm</div>
-	)
+function BasicForm() {
+  return (
+    <div>BasicForm</div>
+  )
 }
 
 export default BasicForm

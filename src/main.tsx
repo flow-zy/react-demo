@@ -12,10 +12,10 @@ import './styles/base.css'
 import 'virtual:svg-icons-register'
 
 createRoot(document.getElementById('root')!).render(
-	<HelmetProvider>
-		<QueryClientProvider client={new QueryClient()}>
-			{/* <ReactQueryDevtools initialIsOpen={false} /> */}
-			<App></App>
-		</QueryClientProvider>
-	</HelmetProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={new QueryClient()}>
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <App></App>
+    </QueryClientProvider>
+  </HelmetProvider>,
 )

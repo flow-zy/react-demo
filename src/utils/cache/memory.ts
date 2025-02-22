@@ -1,8 +1,8 @@
 export interface Cache<V = any> {
-  value?: V;
-  timeoutId?: ReturnType<typeof setTimeout>;
-  time?: number;
-  alive?: number;
+  value?: V
+  timeoutId?: ReturnType<typeof setTimeout>
+  time?: number
+  alive?: number
 }
 
 const NOT_ALIVE = 0
@@ -20,7 +20,7 @@ export class Memory<T = any, V = any> {
     return this.cache
   }
 
-  setCache(cache:any) {
+  setCache(cache: any) {
     this.cache = cache
   }
 
@@ -49,7 +49,8 @@ export class Memory<T = any, V = any> {
         item.timeoutId = undefined
       }
       item.value = value
-    } else {
+    }
+    else {
       item = { value, alive: expires }
       this.cache[key] = item
     }
@@ -98,8 +99,8 @@ export class Memory<T = any, V = any> {
   }
 
   clear() {
-		Object.keys(this.cache).forEach((key) => {
-			// @ts-ignore
+    Object.keys(this.cache).forEach((key) => {
+      // @ts-ignore
       const item = this.cache[key]
       item.timeoutId && clearTimeout(item.timeoutId)
     })

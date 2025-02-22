@@ -1,20 +1,20 @@
-import { lazy } from 'react'
-
-import Lazyload from '../components/LazyLoad'
-
 import type { AppRouteObject } from '@/types/router'
+
+import NotFound from '@/views/Exception/404'
+import NotAuth from '@/views/Exception/403'
+import NotAllow from '@/views/Exception/500'
 
 export const errorRoutes: AppRouteObject[] = [
   {
     path: '/404',
-    element: <Lazyload>{lazy(() => import('@/views/Exception/404'))}</Lazyload> ,
+    element: <NotFound></NotFound>,
   },
   {
     path: '/403', // 当访问没有权限的页面时，会自动跳转到403页面
-    element: <Lazyload>{lazy(() => import('@/views/Exception/403'))}</Lazyload> ,
+    element: <NotAuth></NotAuth>,
   },
   {
     path: '/500',
-    element: <Lazyload>{lazy(() => import('@/views/Exception/500'))}</Lazyload> ,
-  }
+    element: <NotAllow></NotAllow>,
+  },
 ]

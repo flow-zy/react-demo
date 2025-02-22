@@ -194,6 +194,22 @@
 				transform: translate3d(-220px, 0, 0);
 			}
 		}
+		  :root {
+      /* 默认亮主题 */
+      --bg-color: #fff;
+      background-color: var(--bg-color);
+    }
+
+    :root.dark {
+      /* 暗主题 */
+      --bg-color: #000;
+    }
+
+		::view-transition-new(root),
+    ::view-transition-old(root) {
+      /* 关闭默认动画 */
+      animation: none;
+    }
 	</style>
 </head>
 

@@ -1,11 +1,9 @@
-import { lazy } from 'react'
-
-import LazyLoad from '../components/LazyLoad'
-
 import { HOME_URL } from '@/config/config'
+import Home from '@/views/Home'
+
 export const STAIC_ROUTES = [
   {
     path: HOME_URL,
-    element:<LazyLoad>{lazy(() => import('@/views/Home'))}</LazyLoad>
-  }
+    element: <Home></Home>,
+  },
 ]

@@ -10,9 +10,9 @@ import { resolve } from 'node:path'
 import type { PluginOption } from 'vite'
 
 export function configSvgIconsPlugin({ isBuild }: { isBuild: boolean }) {
-	const svgIconsPlugin = createSvgIconsPlugin({
-		iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
-		svgoOptions: isBuild
-	})
-	return svgIconsPlugin as PluginOption
+  const svgIconsPlugin = createSvgIconsPlugin({
+    iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
+    svgoOptions: isBuild,
+  })
+  return svgIconsPlugin as PluginOption
 }

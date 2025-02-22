@@ -1,5 +1,7 @@
-import { Persistent, BasicKeys } from '@/utils/cache/persistent'
-import {  TOKEN_KEY } from '@/enums/cacheEnum'
+import type { BasicKeys } from '@/utils/cache/persistent'
+
+import { Persistent } from '@/utils/cache/persistent'
+import { TOKEN_KEY } from '@/enums/cacheEnum'
 // CacheTypeEnum,
 
 const isLocal = true
