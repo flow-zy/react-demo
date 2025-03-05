@@ -1,4 +1,4 @@
-// import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react-swc'
 import purgeIcons from 'vite-plugin-purge-icons'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -31,7 +31,7 @@ export async function createPlugins({
 }: Options) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     react(),
-    // tailwindcss(),
+    tailwindcss(),
     tsconfigPaths(),
   ]
   const appConfigPlugin = await createAppConfigPlugin({ root, isBuild })

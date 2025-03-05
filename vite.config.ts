@@ -7,6 +7,7 @@ export default defineApplicationConfig({
       warmup: {
         clientFiles: ['./index.html', './src/{views,components}/*'],
       },
+      port: 8080, // 端口号
     },
     // 优化依赖预构建
     optimizeDeps: {

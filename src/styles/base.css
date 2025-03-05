@@ -3,6 +3,13 @@
 @import "react-quill/dist/quill.snow.css";
 /* simplebar */
 @import "simplebar-react/dist/simplebar.min.css";
-@theme {
+
+/* @theme {
   '--color-primary': var(--ant-color-primary, #4f46e5);
+} */
+::view-transition-new(root),
+::view-transition-old(root) {
+  /* 关闭默认动画 */
+  -webkit-animation: none;
+  animation: none;
 }
