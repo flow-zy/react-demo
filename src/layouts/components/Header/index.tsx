@@ -1,4 +1,4 @@
-import { Breadcrumb, Layout, Tooltip } from 'antd'
+import { Layout } from 'antd'
 
 import Menu from '../Menu'
 
@@ -12,9 +12,11 @@ import Theme from './components/Theme'
 import Language from './components/Language'
 import SettingDrawer from './components/setting-drawer'
 import AvatarIcon from './components/AvatarIcon'
+import Breadcreamb from './components/Breadcreamb'
+import Colllapse from './components/Colllapse'
 function Header() {
   const { getProjectConfig, setProjectConfig } = useAppStore()
-  const iconCLass=cn('cursor-pointer','hover:bg-gray-200','p-2','box-border','rounded-[50%]','h-8','w-8','flex','justify-center','items-center')
+  const iconCLass = cn('cursor-pointer', 'hover:bg-gray-200', 'p-2', 'box-border', 'rounded-[50%]', 'h-8', 'w-8', 'flex', 'justify-center', 'items-center')
   const {
     showLogo,
     logo,
@@ -24,6 +26,7 @@ function Header() {
     showBreadCrumb,
     layout,
     isFullScreen,
+    menuSetting
   } = getProjectConfig()
   const { themeMode, setTheme } = useTheme(getProjectConfig())
   return (
@@ -34,11 +37,17 @@ function Header() {
     >
       <div className="flex w-full items-center">
         <div className="flex  items-center gap-1.5 border-r border-solid border-r-gray-300 px-2 py-2">
-          {showLogo && <img src={logo} alt={siteTitle} className="h-8 w-8" />}
-          {showTitle && <span className="text-base">{siteTitle}</span>}
+          { showLogo && <img src={logo} alt={siteTitle} className={menuSetting.isCollapsed ? 'w-6 h-6' : 'w-8 h-8'} /> }
+          {!menuSetting.isCollapsed && showTitle && <span className="text-base">{siteTitle}</span>}
         </div>
+        <Colllapse isCollapsed={menuSetting.isCollapsed} onClick={() => setProjectConfig({
+          menuSetting: {
+            ...menuSetting,
+            isCollapsed: !menuSetting.isCollapsed
+          }
+        })}></Colllapse>
         <div className="flex flex-1 items-center">
-          {showBreadCrumb && <Breadcrumb></Breadcrumb>}
+          {showBreadCrumb && <Breadcreamb></Breadcreamb>}
           {layout === ThemeLayout.Horizontal && <Menu></Menu>}
         </div>
         <div className="tools flex items-center gap-1.5 h-16 box-border">

@@ -1,10 +1,14 @@
-import { ThemeMode } from "@/enums/appEnum";
-import { useAppStore } from "@/store/application";
-import { ProjectConfig } from "@/types/config";
-import { type MouseEvent, useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
-export const useTheme = (projectConfig: ProjectConfig) => {
-  const appStroe=useAppStore()
+import type { MouseEvent } from 'react'
+
+import type { ProjectConfig } from '@/types/config'
+
+import { ThemeMode } from '@/enums/appEnum'
+import { useAppStore } from '@/store/application'
+
+export function useTheme(projectConfig: ProjectConfig) {
+  const appStroe = useAppStore()
   const [themeMode, setThemeMode] = useState(projectConfig.theme)
   // 是不是暗黑主题
   const isDark = useMemo(() => themeMode === ThemeMode.Dark, [themeMode])
@@ -13,20 +17,21 @@ export const useTheme = (projectConfig: ProjectConfig) => {
     () => {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setThemeMode(ThemeMode.Dark)
-      } else {
+      }
+      else {
         setThemeMode(ThemeMode.Light)
       }
     }
   }, [])
   // 更改主题
   const changeTheme = () => {
-    // 动画过渡切换主题色
-    document.documentElement.classList.toggle("dark");
+    //
+    isDark ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
     appStroe.setProjectConfig({
       ...projectConfig,
-      theme: isDark ? ThemeMode.Light : ThemeMode.Dark
+      theme: isDark ? ThemeMode.Light : ThemeMode.Dark,
     })
-    setThemeMode( isDark ? ThemeMode.Light : ThemeMode.Dark)
+    setThemeMode(isDark ? ThemeMode.Light : ThemeMode.Dark)
   }
   // 初始主题
   const initTheme = () => {
@@ -34,18 +39,18 @@ export const useTheme = (projectConfig: ProjectConfig) => {
   }
   // 设置主题
   const setTheme = (e: MouseEvent) => {
-    const { clientX, clientY } = e;
+    const { clientX, clientY } = e
     // 设置绘画路径
     const radius = Math.hypot(
       Math.max(clientX, innerWidth - clientX),
-      Math.max(clientY, innerHeight - clientY)
-    );
+      Math.max(clientY, innerHeight - clientY),
+    )
     const clipPath = [
       `circle(0% at ${clientX}px ${clientY}px)`,
       `circle(${radius}px at ${clientX}px ${clientY}px)`,
     ]
     console.log(isDark)
-    const transition = document.startViewTransition(changeTheme);
+    const transition = document.startViewTransition(changeTheme)
     transition.ready.then(() => {
       // 圆形动画扩散开始
       document.documentElement.animate(
@@ -54,9 +59,9 @@ export const useTheme = (projectConfig: ProjectConfig) => {
         },
         {
           duration: 300,
-          pseudoElement: "::view-transition-new(root)"
-        }
-      );
+          pseudoElement: '::view-transition-new(root)',
+        },
+      )
     })
   }
   // 改变侧边栏主题
@@ -69,9 +74,9 @@ export const useTheme = (projectConfig: ProjectConfig) => {
   }
   useEffect(() => {
     initTheme()
-  },[])
+  }, [])
   return {
     setTheme,
-    themeMode
+    themeMode,
   }
 }

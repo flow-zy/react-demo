@@ -1,22 +1,32 @@
-import { Avatar, Dropdown, MenuProps } from 'antd'
+import { Avatar, Dropdown } from 'antd'
+
+import type { MenuProps } from 'antd'
+
 import avatar from '@/assets/images/avatar.png'
 import Iconify from '@/components/Icon/iconify-icon'
-const AvatarIcon = (props) => {
+
+function AvatarIcon(props) {
   const items: MenuProps['items'] = [{
     key: 'user-info',
     label: <>
-      <Iconify icon='ant-design:user-outlined'/> 个人信息
-    </>,
+      <Iconify icon="ant-design:user-outlined" />
+      {' '}
+      个人信息
+           </>,
   }, {
     key: 'change-password',
     label: <>
-      <Iconify icon='ant-design:key-outlined' /> 修改密码
-    </>,
+      <Iconify icon="ant-design:key-outlined" />
+      {' '}
+      修改密码
+           </>,
   }, {
     key: 'logout',
     label: <>
-      <Iconify icon='ant-design:logout-outlined' /> 退出登录
-    </>,
+      <Iconify icon="ant-design:logout-outlined" />
+      {' '}
+      退出登录
+           </>,
   }]
   return (
     <div {...props}>
@@ -25,7 +35,7 @@ const AvatarIcon = (props) => {
           src={avatar}
           size="large"
           alt="avatar"
-          className='cursor-pointer'
+          className="cursor-pointer"
         />
       </Dropdown>
     </div>
