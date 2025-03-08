@@ -168,7 +168,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-inspect": "^0.8.9",
-    "vite-plugin-mock": "^2.9.6",
+    "vite-plugin-mock": "^3.0.2",
     "vite-plugin-purge-icons": "^0.10.0",
     "vite-plugin-pwa": "^0.17.5",
     "vite-plugin-svg-icons": "^2.0.1",
