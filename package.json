@@ -8,17 +8,17 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc  -b --noEmit && vite build ",
+    "build": "tsc -b --noEmit && vite build ",
     "lint": "lint:eslint && lint:prettier && lint:stylelint",
     "preview": "vite preview",
     "lint:eslint": "eslint ./src --fix",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
-    "lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{less,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged",
     "prepare": "husky install",
     "release": "standard-version",
     "commit": "git pull && git add -A && git-cz && git push",
-    "preinstall": "rimraf node_modules && pnpm install"
+    "clean": "rimraf node_modules && pnpm install"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.23.0",

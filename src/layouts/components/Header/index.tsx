@@ -1,11 +1,5 @@
 import { Layout } from 'antd'
 
-import Menu from '../Menu'
-
-import { useAppStore } from '@/store/application'
-import { ThemeEnum, ThemeLayout, ThemeMode } from '@/enums/appEnum'
-import { useTheme } from '@/hooks/event/useTheme'
-import { cn } from '@/utils'
 import AssemblySize from './components/AssemblySize'
 import FullScreen from './components/FullScreen'
 import Theme from './components/Theme'
@@ -14,6 +8,14 @@ import SettingDrawer from './components/setting-drawer'
 import AvatarIcon from './components/AvatarIcon'
 import Breadcreamb from './components/Breadcreamb'
 import Colllapse from './components/Colllapse'
+
+import Menu from '../Menu'
+
+import { cn } from '@/utils'
+import { useTheme } from '@/hooks/event/useTheme'
+import { ThemeEnum, ThemeLayout } from '@/enums/appEnum'
+import { useAppStore } from '@/store/application'
+
 function Header() {
   const { getProjectConfig, setProjectConfig } = useAppStore()
   const iconCLass = cn('cursor-pointer', 'hover:bg-gray-200', 'p-2', 'box-border', 'rounded-[50%]', 'h-8', 'w-8', 'flex', 'justify-center', 'items-center')
@@ -26,7 +28,7 @@ function Header() {
     showBreadCrumb,
     layout,
     isFullScreen,
-    menuSetting
+    menuSetting,
   } = getProjectConfig()
   const { themeMode, setTheme } = useTheme(getProjectConfig())
   return (
@@ -40,12 +42,16 @@ function Header() {
           { showLogo && <img src={logo} alt={siteTitle} className={menuSetting.isCollapsed ? 'w-6 h-6' : 'w-8 h-8'} /> }
           {!menuSetting.isCollapsed && showTitle && <span className="text-base">{siteTitle}</span>}
         </div>
-        <Colllapse isCollapsed={menuSetting.isCollapsed} onClick={() => setProjectConfig({
-          menuSetting: {
-            ...menuSetting,
-            isCollapsed: !menuSetting.isCollapsed
-          }
-        })}></Colllapse>
+        <Colllapse
+          isCollapsed={menuSetting.isCollapsed}
+          onClick={() => setProjectConfig({
+            menuSetting: {
+              ...menuSetting,
+              isCollapsed: !menuSetting.isCollapsed,
+            },
+          })}
+        >
+        </Colllapse>
         <div className="flex flex-1 items-center">
           {showBreadCrumb && <Breadcreamb></Breadcreamb>}
           {layout === ThemeLayout.Horizontal && <Menu></Menu>}

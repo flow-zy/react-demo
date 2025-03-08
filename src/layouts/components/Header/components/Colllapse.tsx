@@ -1,11 +1,12 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+
 interface Props {
-  isCollapsed: boolean,
+  isCollapsed: boolean
   onClick: () => void
 }
-function Colllapse({ isCollapsed,onClick }:Props) {
+function Colllapse({ isCollapsed, onClick }: Props) {
   return (
-    <div onClick={onClick} className='mx-2 cursor-pointer'>
+    <div onClick={onClick} className="mx-2 cursor-pointer">
       {isCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
     </div>
   )
