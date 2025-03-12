@@ -38,3 +38,10 @@ export interface ProjectConfig {
   showLoadding: boolean // 页面加载
   transitionName: RouterTransitionEnum // 页面切换动画
 }
+
+export interface GlobEnvConfig {
+  VITE_GLOB_APP_TITLE: string
+  VITE_GLOB_API_URL_PREFIX: string
+  VITE_GLOB_UPLOAD_URL: string
+  VITE_GLOB_API_URL: string
+}

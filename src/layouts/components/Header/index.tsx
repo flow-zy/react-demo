@@ -18,7 +18,7 @@ import { useAppStore } from '@/store/application'
 
 function Header() {
   const { getProjectConfig, setProjectConfig } = useAppStore()
-  const iconCLass = cn('cursor-pointer', 'hover:bg-gray-200', 'p-2', 'box-border', 'rounded-[50%]', 'h-8', 'w-8', 'flex', 'justify-center', 'items-center')
+  const iconCLass = cn('inline-flex', 'items-center', 'justify-center', 'whitespace-nowrap', 'font-medium', 'transition-colors', 'focus-visible:outline-none', 'focus-visible:ring-1', 'focus-visible:ring-ring', 'disabled:pointer-events-none', 'disabled:cursor-not-allowed', 'disabled:opacity-50', 'h-8', 'w-8', 'px-1', 'text-lg', 'hover:bg-accent', 'hover:text-accent-foreground', 'text-foreground/80', 'my-0', 'mr-1', 'rounded-md')
   const {
     showLogo,
     logo,

@@ -4,6 +4,8 @@ import { FullScreen, useFullScreenHandle } from 'react-full-screen'
 
 import { useEffect } from 'react'
 
+import { AliveScope } from 'react-activation'
+
 import Main from './components/Main'
 
 import Header from './components/Header'
@@ -64,7 +66,7 @@ function Layout() {
   }, [isFullScreen])
   return (
     <FullScreen handle={handle} onChange={() => setProjectConfig({ isFullScreen: handle.active })}>
-      <div className="h-screen w-screen">{layoutCom(getProjectConfig())}</div>
+      <div className="h-screen w-screen"><AliveScope>{layoutCom(getProjectConfig())}</AliveScope></div>
     </FullScreen>
   )
 }

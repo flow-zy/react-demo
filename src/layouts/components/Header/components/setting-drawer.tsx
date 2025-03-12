@@ -8,8 +8,11 @@ function SettingDrawer(props) {
       <Tooltip title="设置">
         <Iconify icon="uil:setting" />
       </Tooltip>
+      <DarwerInner />
     </div>
   )
 }
-
+function DarwerInner() {
+  return <></>
+}
 export default SettingDrawer
