@@ -1,1 +1,0 @@
-import{d as o,j as t,R as r,f as a}from"./.pnpm-BAMd3xrl.js";import{H as n}from"./index-Cl1SPyrY.js";const m=()=>{const e=o(),s=()=>{e(n)};return t.jsx(r,{status:"500",title:"500",subTitle:"Sorry, something went wrong.",className:"flex h-full flex-col items-center justify-center",extra:t.jsx(a,{type:"primary",onClick:s,children:"Back Home"})})};export{m as default};
