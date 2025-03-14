@@ -48,5 +48,7 @@ export default antfu({
     // 其他规则
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
+    'react/no-unstable-default-props': 'off',
+    'no-console': 'off',
   },
 })
