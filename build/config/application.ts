@@ -72,29 +72,29 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
             entryFileNames: 'assets/js/[name]-[hash].js',
             assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
             chunkFileNames: 'assets/js/[name]-[hash].js',
-            manualChunks(id) {
-              if (id.includes('node_modules')) {
-                return id.toString().split('node_modules/')[1].split('/')[0].toString()
-              }
+            // manualChunks(id) {
+            //   if (id.includes('node_modules')) {
+            //     return id.toString().split('node_modules/')[1].split('/')[0].toString()
+            //   }
+            // },
+            manualChunks: {
+              'vendor-core': ['react', 'react-dom', 'react-router-dom'],
+              'vendor-ui': [
+                'antd',
+                '@ant-design/icons',
+                '@ant-design/cssinjs',
+                'framer-motion',
+                'styled-components',
+              ],
+              'vendor-utils': [
+                'axios',
+                'dayjs',
+                'i18next',
+                'zustand',
+                '@iconify/react',
+              ],
+              'vendor-charts': ['apexcharts', 'react-apexcharts'],
             },
-            // manualChunks: {
-            // 	'vendor-core': ['react', 'react-dom', 'react-router-dom'],
-            // 	'vendor-ui': [
-            // 		'antd',
-            // 		'@ant-design/icons',
-            // 		'@ant-design/cssinjs',
-            // 		'framer-motion',
-            // 		'styled-components'
-            // 	],
-            // 	'vendor-utils': [
-            // 		'axios',
-            // 		'dayjs',
-            // 		'i18next',
-            // 		'zustand',
-            // 		'@iconify/react'
-            // 	],
-            // 	'vendor-charts': ['apexcharts', 'react-apexcharts']
-            // }
           },
         },
       },
